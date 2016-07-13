@@ -1,7 +1,6 @@
 #!/bin/bash
 
-#TODO make to input arguments
-to="PH1_R.1.1"
+to=''
 ln_at="~/HOME"
 
 ln_files=(
@@ -15,12 +14,16 @@ ln_files=(
   "lua"
 )
 
+echo -n "symlink directory(default=R.5.0.0): "
+read to 
+if [$to -eq '']; then
+  to='R.5.0.0'   
+fi
 echo 'package symlink will be'
 echo $to
 
 for f in "${ln_files[@]}"; do
   echo change $ln_at/$f
-#unlink $ln_at/$f
   unlink $f
   ln -s $to/$f $f
 done
