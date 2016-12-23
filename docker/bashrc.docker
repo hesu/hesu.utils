@@ -1,0 +1,22 @@
+#!/bin/bash
+
+function de ()
+{
+    if [ -z $1 ] ;  then
+            echo "# Available container"
+            docker ps -a
+            return
+    fi
+
+    local a=(${1//@/ });
+    if [ ! -z ${a[1]} ]; then
+        docker exec -it -u ${a[0]} ${USER}-${a[1]} /bin/bash;
+    else
+        docker exec -it ${USER}-$1 /bin/bash;
+    fi
+}
+
+function dl ()
+{
+	# TODO
+}
