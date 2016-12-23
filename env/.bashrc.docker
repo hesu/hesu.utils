@@ -1,0 +1,17 @@
+
+DOCKER_SCRIPT_HOME=$HOME/Docker/scripts
+
+function dbuild
+{
+  $DOCKER_SCRIPT_HOME/build.sh
+}
+
+function drun
+{
+  $DOCKER_SCRIPT_HOME/run.sh
+}
+
+function de
+{
+	docker exec -it $1 /bin/bash
+}
